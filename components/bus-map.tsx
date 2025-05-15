@@ -12,6 +12,10 @@ interface BusMapProps {
     status: string
     type: string
     eta: string
+    location?: {
+      lat: number
+      lng: number
+    }
   }>
   userLocation: {
     lat: number
@@ -41,11 +45,11 @@ export function BusMap({ buses, userLocation }: BusMapProps) {
     ctx.fillStyle = "#f3f4f6"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    // Draw some roads
+    // Draw some roads (simplified Kolkata map)
     ctx.strokeStyle = "#d1d5db"
     ctx.lineWidth = 3
 
-    // Horizontal roads
+    // Horizontal roads (East-West)
     for (let i = 1; i < 5; i++) {
       const y = (canvas.height / 5) * i
       ctx.beginPath()
@@ -54,7 +58,7 @@ export function BusMap({ buses, userLocation }: BusMapProps) {
       ctx.stroke()
     }
 
-    // Vertical roads
+    // Vertical roads (North-South)
     for (let i = 1; i < 5; i++) {
       const x = (canvas.width / 5) * i
       ctx.beginPath()
@@ -62,6 +66,16 @@ export function BusMap({ buses, userLocation }: BusMapProps) {
       ctx.lineTo(x, canvas.height)
       ctx.stroke()
     }
+
+    // Draw Hooghly River (simplified)
+    ctx.fillStyle = "#93c5fd"
+    ctx.beginPath()
+    ctx.moveTo(canvas.width * 0.2, 0)
+    ctx.quadraticCurveTo(canvas.width * 0.25, canvas.height * 0.5, canvas.width * 0.2, canvas.height)
+    ctx.lineTo(0, canvas.height)
+    ctx.lineTo(0, 0)
+    ctx.closePath()
+    ctx.fill()
 
     // Draw user location
     const userX = canvas.width / 2
@@ -99,6 +113,28 @@ export function BusMap({ buses, userLocation }: BusMapProps) {
       ctx.fillText(bus.route, x, y - 10)
     })
 
+    // Add some Kolkata landmarks (simplified)
+    const landmarks = [
+      { name: "Howrah Bridge", x: canvas.width * 0.25, y: canvas.height * 0.3 },
+      { name: "Victoria Memorial", x: canvas.width * 0.4, y: canvas.height * 0.6 },
+      { name: "Salt Lake Stadium", x: canvas.width * 0.7, y: canvas.height * 0.4 },
+      { name: "Science City", x: canvas.width * 0.6, y: canvas.height * 0.7 },
+    ]
+
+    landmarks.forEach((landmark) => {
+      // Landmark marker
+      ctx.fillStyle = "#4b5563"
+      ctx.beginPath()
+      ctx.arc(landmark.x, landmark.y, 4, 0, Math.PI * 2)
+      ctx.fill()
+
+      // Landmark name
+      ctx.fillStyle = "#4b5563"
+      ctx.font = "8px Arial"
+      ctx.textAlign = "center"
+      ctx.fillText(landmark.name, landmark.x, landmark.y - 8)
+    })
+
     setIsMapLoaded(true)
   }, [buses, userLocation])
 
@@ -132,7 +168,7 @@ export function BusMap({ buses, userLocation }: BusMapProps) {
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-[#8b5cf6]"></div>
-          <span>Panoramic Bus</span>
+          <span>Premium Bus</span>
         </div>
       </div>
     </div>

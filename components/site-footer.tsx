@@ -12,8 +12,8 @@ export function SiteFooter() {
               <span className="font-bold">CityConnect</span>
             </Link>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Smart city bus tracking and booking system. Track buses in real-time, pre-book your journey, and earn
-              rewards.
+              Smart city bus tracking and booking system for Kolkata. Track buses in real-time, pre-book your journey,
+              and earn rewards.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-500 hover:text-rose-600 dark:text-gray-400 dark:hover:text-rose-400">
@@ -31,26 +31,26 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-medium mb-4">Services</h3>
+            <h3 className="text-sm font-medium mb-4">Popular Routes</h3>
             <ul className="grid gap-3 text-sm text-gray-500 dark:text-gray-400">
               <li>
-                <Link href="/track" className="hover:text-rose-600 dark:hover:text-rose-400">
-                  Bus Tracking
+                <Link href="/track?area=howrah" className="hover:text-rose-600 dark:hover:text-rose-400">
+                  Howrah to Salt Lake
                 </Link>
               </li>
               <li>
-                <Link href="/book" className="hover:text-rose-600 dark:hover:text-rose-400">
-                  Pre-booking
+                <Link href="/track?area=esplanade" className="hover:text-rose-600 dark:hover:text-rose-400">
+                  Esplanade to Garia
                 </Link>
               </li>
               <li>
-                <Link href="/payment" className="hover:text-rose-600 dark:hover:text-rose-400">
-                  QR Payments
+                <Link href="/track?area=dum-dum" className="hover:text-rose-600 dark:hover:text-rose-400">
+                  Dum Dum to Barasat
                 </Link>
               </li>
               <li>
-                <Link href="/rewards" className="hover:text-rose-600 dark:hover:text-rose-400">
-                  Reward Points
+                <Link href="/track?area=sealdah" className="hover:text-rose-600 dark:hover:text-rose-400">
+                  Sealdah to Behala
                 </Link>
               </li>
             </ul>

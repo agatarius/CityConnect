@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ArrowRight, Bus, CreditCard, MapPin, Shield, Star, Timer } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { HomeCarousel } from "@/components/home-carousel"
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
                   CityConnect
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Smart city bus tracking and booking system. Track buses in real-time, pre-book your journey, and earn
-                  rewards.
+                  Track buses across Kolkata in real-time, pre-book your journey, and travel smarter with our city bus
+                  tracking system.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -35,16 +36,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="relative w-full max-w-[500px] aspect-video overflow-hidden rounded-xl shadow-xl">
-                <Image
-                  src="/placeholder.svg?height=500&width=800"
-                  alt="City bus on a street"
-                  width={800}
-                  height={500}
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              <HomeCarousel />
             </div>
           </div>
         </div>
@@ -56,10 +48,10 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Smart Features for Smart Travel
+                Smart Features for Kolkata Commuters
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Experience the future of public transportation with our innovative features.
+                Experience the future of public transportation in the City of Joy.
               </p>
             </div>
           </div>
@@ -70,7 +62,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Real-Time Tracking</h3>
               <p className="text-center text-gray-500 dark:text-gray-400">
-                Track your bus in real-time and never miss a ride again.
+                Track your bus in real-time across all major Kolkata routes.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
@@ -88,7 +80,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Premium Bus Options</h3>
               <p className="text-center text-gray-500 dark:text-gray-400">
-                Choose from AC, non-AC, and our unique transparent viewing buses.
+                Choose from AC, non-AC, and premium buses across Kolkata.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
@@ -97,7 +89,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Pre-booking</h3>
               <p className="text-center text-gray-500 dark:text-gray-400">
-                Reserve your seat in advance and travel stress-free.
+                Reserve your seat in advance for popular routes like Howrah to Salt Lake.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
@@ -122,14 +114,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bus Types Section */}
+      {/* Popular Routes Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Choose Your Perfect Ride</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Popular Kolkata Routes</h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                We offer a variety of bus types to suit your needs and preferences.
+                Discover the most frequently traveled bus routes in Kolkata.
               </p>
             </div>
           </div>
@@ -137,71 +129,71 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Standard Non-AC Bus"
+                  src="/images/howrah-to-saltlake.png"
+                  alt="Howrah to Salt Lake Route"
                   width={600}
                   height={400}
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold">Standard Non-AC</h3>
+                <h3 className="text-2xl font-bold">Howrah to Salt Lake</h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  Economical and efficient for short city commutes.
+                  Popular route connecting Howrah Station to Salt Lake Sector V tech hub.
                 </p>
                 <div className="mt-4 flex justify-between">
-                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Starting from</span>
-                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">₹10</span>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Bus Numbers</span>
+                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">KB-16, KB-22</span>
                 </div>
               </div>
             </div>
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Premium AC Bus"
+                  src="/images/esplanade-to-garia.png"
+                  alt="Esplanade to Garia Route"
                   width={600}
                   height={400}
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold">Premium AC</h3>
+                <h3 className="text-2xl font-bold">Esplanade to Garia</h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  Comfortable air-conditioned travel for a refreshing journey.
+                  Connecting central Kolkata to southern residential areas.
                 </p>
                 <div className="mt-4 flex justify-between">
-                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Starting from</span>
-                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">₹20</span>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Bus Numbers</span>
+                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">S-12, AC-20</span>
                 </div>
               </div>
             </div>
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Panoramic View Bus"
+                  src="/images/dumdum-to-barasat.png"
+                  alt="Dum Dum to Barasat Route"
                   width={600}
                   height={400}
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold">Panoramic View</h3>
+                <h3 className="text-2xl font-bold">Dum Dum to Barasat</h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  Transparent roof and large windows for sightseeing enthusiasts.
+                  Connecting North Kolkata to the northern suburbs.
                 </p>
                 <div className="mt-4 flex justify-between">
-                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Starting from</span>
-                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">₹30</span>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Bus Numbers</span>
+                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">DN-9, DN-15</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="flex justify-center">
-            <Link href="/bus-types">
+            <Link href="/track">
               <Button variant="outline" size="lg">
-                Learn More About Our Buses
+                Explore All Routes
               </Button>
             </Link>
           </div>
@@ -214,7 +206,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center text-white">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Ready to Transform Your Commute?
+                Ready to Transform Your Kolkata Commute?
               </h2>
               <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed opacity-90">
                 Download our app now and enjoy 10 free rides to get started!

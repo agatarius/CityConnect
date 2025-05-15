@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { CalendarIcon, Check, ChevronsUpDown } from "lucide-react"
 import { format } from "date-fns"
+import { useAuth } from "@/lib/auth-context"
+import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -15,20 +17,36 @@ import { RadioGroup } from "@/components/ui/radio-group"
 import { cn } from "@/lib/utils"
 import { BusSelector } from "@/components/bus-selector"
 
+// Updated locations specific to Kolkata
 const locations = [
-  { value: "central", label: "Central Station" },
-  { value: "Techno", label: "Techno" },
-  { value: "market", label: "Market Square" },
-  { value: "university", label: "University Campus" },
-  { value: "mall", label: "Shopping Mall" },
-  { value: "tech-park", label: "Tech Park" },
-  { value: "riverside", label: "Riverside" },
-  { value: "downtown", label: "Downtown" },
-  { value: "beach", label: "Beach Road" },
-  { value: "hill-view", label: "Hill View" },
+  { value: "salt-lake", label: "Salt Lake" },
+  { value: "new-town", label: "New Town" },
+  { value: "techno-india", label: "Techno India University" },
+  { value: "karunamoyee", label: "Karunamoyee" },
+  { value: "dum-dum", label: "Dum Dum" },
+  { value: "howrah", label: "Howrah" },
+  { value: "gariaghat", label: "GariaGhat" },
+  { value: "city-centre", label: "City Centre" },
+  { value: "park-street", label: "Park Street" },
+  { value: "college-street", label: "College Street" },
+  { value: "kumartuli", label: "Kumartuli" },
+  { value: "bhawanipur", label: "Bhawanipur" },
+  { value: "topsia", label: "Topsia" },
+  { value: "rubi", label: "Rubi" },
+  { value: "science-city", label: "Science City" },
+  { value: "ecopark", label: "Ecopark" },
+  { value: "gd-island", label: "GD Island" },
+  { value: "dakshineshwar", label: "Dakshineshwar Temple" },
+  { value: "hooghly", label: "Hooghly" },
+  { value: "kestopur", label: "Kestopur" },
+  { value: "chingrighata", label: "Chingrighata" },
+  { value: "kankurgachi", label: "Kankurgachi" },
 ]
 
 export default function BookPage() {
+  const { user, isAuthenticated } = useAuth()
+  const router = useRouter()
+
   const [date, setDate] = useState<Date>()
   const [fromLocation, setFromLocation] = useState("")
   const [toLocation, setToLocation] = useState("")
@@ -48,6 +66,11 @@ export default function BookPage() {
     if (step > 1) {
       setStep(step - 1)
     }
+  }
+
+  const handleConfirmBooking = () => {
+    // Redirect to payment success page
+    router.push("/payment-success")
   }
 
   return (
@@ -380,14 +403,132 @@ export default function BookPage() {
                 <div className="flex items-center justify-center">
                   <div className="rounded-lg border p-4 bg-muted/50">
                     <div className="text-center mb-2">Scan QR Code to Pay</div>
+                    {/* More realistic QR code */}
                     <div className="w-48 h-48 mx-auto bg-white p-2 rounded-md">
-                      <div className="w-full h-full border-2 border-black rounded-sm grid grid-cols-4 grid-rows-4 p-2">
-                        <div className="col-span-1 row-span-1 border-2 border-black m-1"></div>
-                        <div className="col-span-1 row-span-1 border-2 border-black m-1 col-start-4"></div>
-                        <div className="col-span-1 row-span-1 border-2 border-black m-1 row-start-4"></div>
-                        <div className="col-span-1 row-span-1 border-2 border-black m-1 col-start-4 row-start-4"></div>
-                        <div className="col-start-2 col-span-2 row-start-2 row-span-2 border-2 border-black m-1"></div>
-                      </div>
+                      <svg
+                        viewBox="0 0 100 100"
+                        className="w-full h-full"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* QR Code frame */}
+                        <rect width="100" height="100" fill="white" />
+
+                        {/* Position detection patterns (corners) */}
+                        <g>
+                          {/* Top-left */}
+                          <rect x="5" y="5" width="20" height="20" fill="black" />
+                          <rect x="10" y="10" width="10" height="10" fill="white" />
+                          <rect x="12" y="12" width="6" height="6" fill="black" />
+
+                          {/* Top-right */}
+                          <rect x="75" y="5" width="20" height="20" fill="black" />
+                          <rect x="80" y="10" width="10" height="10" fill="white" />
+                          <rect x="82" y="12" width="6" height="6" fill="black" />
+
+                          {/* Bottom-left */}
+                          <rect x="5" y="75" width="20" height="20" fill="black" />
+                          <rect x="10" y="80" width="10" height="10" fill="white" />
+                          <rect x="12" y="82" width="6" height="6" fill="black" />
+                        </g>
+
+                        {/* QR Code data modules (simplified) */}
+                        <g>
+                          {/* Random pattern to make it look like a real QR code */}
+                          <rect x="35" y="5" width="5" height="5" fill="black" />
+                          <rect x="45" y="5" width="5" height="5" fill="black" />
+                          <rect x="55" y="5" width="5" height="5" fill="black" />
+                          <rect x="30" y="10" width="5" height="5" fill="black" />
+                          <rect x="40" y="10" width="5" height="5" fill="black" />
+                          <rect x="50" y="10" width="5" height="5" fill="black" />
+                          <rect x="60" y="10" width="5" height="5" fill="black" />
+                          <rect x="35" y="15" width="5" height="5" fill="black" />
+                          <rect x="45" y="15" width="5" height="5" fill="black" />
+                          <rect x="55" y="15" width="5" height="5" fill="black" />
+
+                          <rect x="5" y="35" width="5" height="5" fill="black" />
+                          <rect x="15" y="35" width="5" height="5" fill="black" />
+                          <rect x="25" y="35" width="5" height="5" fill="black" />
+                          <rect x="35" y="35" width="5" height="5" fill="black" />
+                          <rect x="45" y="35" width="5" height="5" fill="black" />
+                          <rect x="65" y="35" width="5" height="5" fill="black" />
+                          <rect x="75" y="35" width="5" height="5" fill="black" />
+                          <rect x="85" y="35" width="5" height="5" fill="black" />
+
+                          <rect x="10" y="40" width="5" height="5" fill="black" />
+                          <rect x="30" y="40" width="5" height="5" fill="black" />
+                          <rect x="50" y="40" width="5" height="5" fill="black" />
+                          <rect x="70" y="40" width="5" height="5" fill="black" />
+                          <rect x="90" y="40" width="5" height="5" fill="black" />
+
+                          <rect x="5" y="45" width="5" height="5" fill="black" />
+                          <rect x="15" y="45" width="5" height="5" fill="black" />
+                          <rect x="25" y="45" width="5" height="5" fill="black" />
+                          <rect x="45" y="45" width="5" height="5" fill="black" />
+                          <rect x="55" y="45" width="5" height="5" fill="black" />
+                          <rect x="65" y="45" width="5" height="5" fill="black" />
+                          <rect x="75" y="45" width="5" height="5" fill="black" />
+
+                          <rect x="10" y="50" width="5" height="5" fill="black" />
+                          <rect x="20" y="50" width="5" height="5" fill="black" />
+                          <rect x="40" y="50" width="5" height="5" fill="black" />
+                          <rect x="50" y="50" width="5" height="5" fill="black" />
+                          <rect x="60" y="50" width="5" height="5" fill="black" />
+                          <rect x="80" y="50" width="5" height="5" fill="black" />
+                          <rect x="90" y="50" width="5" height="5" fill="black" />
+
+                          <rect x="5" y="55" width="5" height="5" fill="black" />
+                          <rect x="25" y="55" width="5" height="5" fill="black" />
+                          <rect x="35" y="55" width="5" height="5" fill="black" />
+                          <rect x="45" y="55" width="5" height="5" fill="black" />
+                          <rect x="65" y="55" width="5" height="5" fill="black" />
+                          <rect x="85" y="55" width="5" height="5" fill="black" />
+
+                          <rect x="30" y="60" width="5" height="5" fill="black" />
+                          <rect x="40" y="60" width="5" height="5" fill="black" />
+                          <rect x="50" y="60" width="5" height="5" fill="black" />
+                          <rect x="60" y="60" width="5" height="5" fill="black" />
+                          <rect x="70" y="60" width="5" height="5" fill="black" />
+
+                          <rect x="35" y="65" width="5" height="5" fill="black" />
+                          <rect x="45" y="65" width="5" height="5" fill="black" />
+                          <rect x="55" y="65" width="5" height="5" fill="black" />
+                          <rect x="65" y="65" width="5" height="5" fill="black" />
+
+                          <rect x="30" y="70" width="5" height="5" fill="black" />
+                          <rect x="40" y="70" width="5" height="5" fill="black" />
+                          <rect x="60" y="70" width="5" height="5" fill="black" />
+                          <rect x="70" y="70" width="5" height="5" fill="black" />
+
+                          <rect x="35" y="75" width="5" height="5" fill="black" />
+                          <rect x="45" y="75" width="5" height="5" fill="black" />
+                          <rect x="55" y="75" width="5" height="5" fill="black" />
+                          <rect x="65" y="75" width="5" height="5" fill="black" />
+
+                          <rect x="30" y="80" width="5" height="5" fill="black" />
+                          <rect x="50" y="80" width="5" height="5" fill="black" />
+                          <rect x="60" y="80" width="5" height="5" fill="black" />
+                          <rect x="70" y="80" width="5" height="5" fill="black" />
+
+                          <rect x="35" y="85" width="5" height="5" fill="black" />
+                          <rect x="45" y="85" width="5" height="5" fill="black" />
+                          <rect x="55" y="85" width="5" height="5" fill="black" />
+                          <rect x="75" y="85" width="5" height="5" fill="black" />
+                          <rect x="85" y="85" width="5" height="5" fill="black" />
+
+                          <rect x="40" y="90" width="5" height="5" fill="black" />
+                          <rect x="50" y="90" width="5" height="5" fill="black" />
+                          <rect x="60" y="90" width="5" height="5" fill="black" />
+                          <rect x="70" y="90" width="5" height="5" fill="black" />
+                          <rect x="80" y="90" width="5" height="5" fill="black" />
+                        </g>
+
+                        {/* UPI logo in the center */}
+                        <rect x="40" y="40" width="20" height="20" fill="white" />
+                        <text x="42" y="55" fontSize="10" fontWeight="bold">
+                          UPI
+                        </text>
+                      </svg>
                     </div>
                     <div className="text-center mt-2 text-sm text-muted-foreground">
                       Use any UPI app to scan and pay
@@ -400,7 +541,9 @@ export default function BookPage() {
               <Button variant="ghost" onClick={handleBack}>
                 Back
               </Button>
-              <Button className="bg-rose-600 hover:bg-rose-700">Confirm Booking</Button>
+              <Button className="bg-rose-600 hover:bg-rose-700" onClick={handleConfirmBooking}>
+                Confirm Booking
+              </Button>
             </CardFooter>
           </Card>
         )}
