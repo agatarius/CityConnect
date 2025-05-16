@@ -61,7 +61,7 @@ export default function BusTypesPage() {
               <div className="order-1 md:order-2">
                 <div className="rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/panoramic-view-bus.png"
                     alt="Standard Non-AC Bus"
                     width={600}
                     height={400}
@@ -111,7 +111,7 @@ export default function BusTypesPage() {
               <div className="order-1 md:order-2">
                 <div className="rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/premium-ac-bus.png"
                     alt="Premium AC Bus"
                     width={600}
                     height={400}
@@ -161,7 +161,7 @@ export default function BusTypesPage() {
               <div className="order-1 md:order-2">
                 <div className="rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/images/standard-non-ac-bus.png"
                     alt="Panoramic View Bus"
                     width={600}
                     height={400}
