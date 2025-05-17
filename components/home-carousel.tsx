@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 const carouselItems = [
   {
     id: 1,
-    image: "/images/kolkata-bus-1.png",
+    image: "/images/kolkata-bus-new.png",
     alt: "Kolkata City Bus",
     caption: "Modern city buses serving all major routes",
   },
@@ -20,13 +20,13 @@ const carouselItems = [
   },
   {
     id: 3,
-    image: "/images/victoria-memorial.png",
+    image: "/images/victoria-memorial-updated.jpeg",
     alt: "Victoria Memorial",
     caption: "Easy access to Kolkata's iconic landmarks",
   },
   {
     id: 4,
-    image: "/images/salt-lake-stadium.png",
+    image: "/images/salt-lake-stadium-new.png",
     alt: "Salt Lake Stadium",
     caption: "Regular bus service to sporting venues",
   },

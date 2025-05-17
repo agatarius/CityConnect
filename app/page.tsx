@@ -129,7 +129,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/images/howrah-to-saltlake.png"
+                  src="/images/dumdum-to-barasat-route.jpeg"
                   alt="Howrah to Salt Lake Route"
                   width={600}
                   height={400}
@@ -150,7 +150,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/images/esplanade-to-garia.png"
+                  src="/images/esplanade-to-garia-route.jpeg"
                   alt="Esplanade to Garia Route"
                   width={600}
                   height={400}
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/images/dumdum-to-barasat.png"
+                  src="/images/dumdum-to-barasat-route.jpeg"
                   alt="Dum Dum to Barasat Route"
                   width={600}
                   height={400}
