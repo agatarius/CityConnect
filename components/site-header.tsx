@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Bus, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { useAuth } from "@/lib/auth-context"
+import { useProfile } from "@/lib/profile-context"
 
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -25,6 +26,7 @@ import { NotificationBell } from "@/components/notification-bell"
 export function SiteHeader() {
   const pathname = usePathname()
   const { user, isAuthenticated, logout } = useAuth()
+  const { profileImage } = useProfile()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const routes = [
@@ -65,7 +67,7 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="flex items-center space-x-2 mr-4">
           <Bus className="h-6 w-6 text-rose-600" />
-          <span className="hidden font-bold sm:inline-block">CityConnect</span>
+          <span className="hidden font-bold sm:inline-block">CityWheels</span>
         </Link>
         <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">
           {routes.map((route) => (
@@ -93,7 +95,10 @@ export function SiteHeader() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src="/images/avatar.png" alt={user?.name || ""} />
+                        <AvatarImage
+                          src={profileImage ? `${profileImage}?t=${Date.now()}` : "/images/avatar.png"}
+                          alt={user?.name || ""}
+                        />
                         <AvatarFallback>{user?.name?.charAt(0) || "U"}</AvatarFallback>
                       </Avatar>
                     </Button>

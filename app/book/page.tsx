@@ -295,7 +295,7 @@ export default function BookPage() {
                   title="Standard Non-AC"
                   description="Economical and efficient for short city commutes."
                   price="₹10"
-                  imageSrc="/placeholder.svg?height=100&width=200"
+                  imageSrc="/images/standard-non-ac-bus-new.png"
                 />
 
                 <BusSelector
@@ -304,7 +304,7 @@ export default function BookPage() {
                   title="Premium AC"
                   description="Comfortable air-conditioned travel for a refreshing journey."
                   price="₹20"
-                  imageSrc="/placeholder.svg?height=100&width=200"
+                  imageSrc="/images/premium-ac-bus-new.png"
                 />
 
                 <BusSelector
@@ -313,7 +313,7 @@ export default function BookPage() {
                   title="Panoramic View"
                   description="Transparent roof and large windows for sightseeing enthusiasts."
                   price="₹30"
-                  imageSrc="/placeholder.svg?height=100&width=200"
+                  imageSrc="/images/standard-non-ac-bus.png"
                 />
               </RadioGroup>
             </CardContent>

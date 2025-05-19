@@ -128,8 +128,8 @@ export default function SignupPage() {
                     <Check className="h-8 w-8 text-green-600" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Account Created Successfully!</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Welcome to CityConnect! You now have 10 free rides to get started.
+                  <p className="text-muted-foreground">
+                    Welcome to CityWheels! You now have 10 free rides to get started.
                   </p>
                 </div>
 

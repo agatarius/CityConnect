@@ -15,7 +15,7 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  CityConnect
+                  CityWheels
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                   Track buses across Kolkata in real-time, pre-book your journey, and travel smarter with our city bus
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-lg border shadow-sm transition-all hover:shadow-lg">
               <div className="aspect-video overflow-hidden">
                 <Image
-                  src="/images/dumdum-to-barasat-route.jpeg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dumdum_to_barasat_resized.jpg-1NtulqTK27SO1wD7fLT28kPEpar3HP.jpeg"
                   alt="Dum Dum to Barasat Route"
                   width={600}
                   height={400}

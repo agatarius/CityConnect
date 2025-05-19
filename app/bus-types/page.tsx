@@ -59,13 +59,13 @@ export default function BusTypesPage() {
                 </Link>
               </div>
               <div className="order-1 md:order-2">
-                <div className="rounded-lg overflow-hidden">
+                <div className="rounded-lg overflow-hidden h-[300px]">
                   <Image
-                    src="/images/panoramic-view-bus.png"
+                    src="/images/standard-non-ac-bus-new.png"
                     alt="Standard Non-AC Bus"
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -109,13 +109,13 @@ export default function BusTypesPage() {
                 </Link>
               </div>
               <div className="order-1 md:order-2">
-                <div className="rounded-lg overflow-hidden">
+                <div className="rounded-lg overflow-hidden h-[300px]">
                   <Image
-                    src="/images/premium-ac-bus.png"
+                    src="/images/premium-ac-bus-new.png"
                     alt="Premium AC Bus"
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -159,13 +159,13 @@ export default function BusTypesPage() {
                 </Link>
               </div>
               <div className="order-1 md:order-2">
-                <div className="rounded-lg overflow-hidden">
+                <div className="rounded-lg overflow-hidden h-[300px]">
                   <Image
                     src="/images/standard-non-ac-bus.png"
                     alt="Panoramic View Bus"
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>

@@ -1,6 +1,8 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+// Import the ProfileProvider
+import { ProfileProvider } from "@/lib/profile-context"
 
 // Define user type
 type User = {
@@ -82,17 +84,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        isLoading,
-        isAuthenticated: !!user,
-        login,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <ProfileProvider>
+      <AuthContext.Provider
+        value={{
+          user,
+          isLoading,
+          isAuthenticated: !!user,
+          login,
+          logout,
+        }}
+      >
+        {children}
+      </AuthContext.Provider>
+    </ProfileProvider>
   )
 }
 

@@ -42,11 +42,31 @@ export default function TrackPage() {
   // Handle area change
   const handleAreaChange = (value: string) => {
     setSelectedArea(value)
+    // Automatically search when area changes
+    setTimeout(() => {
+      setIsLoading(true)
+      // Generate mock data based on selected area
+      const mockBuses = generateMockBusData(value, selectedBus)
+      setNearbyBuses(mockBuses)
+      setFilteredBuses(mockBuses)
+      setIsLoading(false)
+    }, 1000)
   }
 
   // Handle bus change
   const handleBusChange = (value: string) => {
     setSelectedBus(value)
+    // Automatically search when bus changes
+    if (selectedArea) {
+      setTimeout(() => {
+        setIsLoading(true)
+        // Generate mock data based on selected area and bus
+        const mockBuses = generateMockBusData(selectedArea, value)
+        setNearbyBuses(mockBuses)
+        setFilteredBuses(mockBuses)
+        setIsLoading(false)
+      }, 1000)
+    }
   }
 
   // Handle search
@@ -212,25 +232,6 @@ export default function TrackPage() {
                 </Select>
               </div>
 
-              {/* Search Button */}
-              <Button
-                className="w-full bg-rose-600 hover:bg-rose-700"
-                onClick={handleSearch}
-                disabled={!selectedArea || isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
-                    Searching...
-                  </>
-                ) : (
-                  <>
-                    <Search className="mr-2 h-4 w-4" />
-                    Search
-                  </>
-                )}
-              </Button>
-
               <div className="relative">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
@@ -243,8 +244,15 @@ export default function TrackPage() {
               </div>
 
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" className="text-xs" onClick={() => setSearchQuery("")}>
-                  Clear filters
+                <Button className="bg-rose-600 hover:bg-rose-700 w-full" onClick={handleSearch} disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
+                      Searching...
+                    </>
+                  ) : (
+                    "Search"
+                  )}
                 </Button>
               </div>
 

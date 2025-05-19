@@ -22,9 +22,13 @@ import { BookingHistoryItem } from "@/components/booking-history-item"
 import { NotificationItem } from "@/components/notification-item"
 import { useAuth } from "@/lib/auth-context"
 import { useToast } from "@/components/ui/use-toast"
+// Import the useProfile hook
+import { useProfile } from "@/lib/profile-context"
 
+// Add the useProfile hook to the component
 export default function ProfilePage() {
-  const { user, isAuthenticated, isLoading } = useAuth()
+  const { user, isAuthenticated, isLoading, logout } = useAuth()
+  const { profileImage: contextProfileImage, updateProfileImage } = useProfile()
   const router = useRouter()
   const { toast } = useToast()
 
@@ -49,6 +53,33 @@ export default function ProfilePage() {
   const [notifications, setNotifications] = useState([])
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
+
+  // Load profile image from context if available
+  useEffect(() => {
+    if (contextProfileImage) {
+      setPreviewUrl(contextProfileImage)
+    }
+  }, [contextProfileImage])
+
+  useEffect(() => {
+    const savedProfileImage = localStorage.getItem("userProfileImage")
+    if (savedProfileImage) {
+      setPreviewUrl(savedProfileImage)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      router.push("/login")
+    }
+
+    // Simulate fetching user data
+    if (isAuthenticated) {
+      // In a real app, this would be an API call
+      setBookings(mockBookings)
+      setNotifications(mockNotifications)
+    }
+  }, [isLoading, isAuthenticated, router])
 
   // Mock data for bookings and notifications
   const mockBookings = [
@@ -99,19 +130,6 @@ export default function ProfilePage() {
     },
   ]
 
-  useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      router.push("/login")
-    }
-
-    // Simulate fetching user data
-    if (isAuthenticated) {
-      // In a real app, this would be an API call
-      setBookings(mockBookings)
-      setNotifications(mockNotifications)
-    }
-  }, [isLoading, isAuthenticated, router])
-
   // Handle file selection for profile photo
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -121,7 +139,8 @@ export default function ProfilePage() {
       // Create a preview URL
       const reader = new FileReader()
       reader.onloadend = () => {
-        setPreviewUrl(reader.result as string)
+        const result = reader.result as string
+        setPreviewUrl(result)
       }
       reader.readAsDataURL(file)
     }
@@ -149,10 +168,19 @@ export default function ProfilePage() {
 
   // Save profile changes
   const saveChanges = () => {
-    setProfileData({
+    // Create updated profile data
+    const updatedProfile = {
       ...editFormData,
-      // In a real app, we would upload the image to a server here
-    })
+    }
+
+    // Update the profile data
+    setProfileData(updatedProfile)
+
+    // If there's a new profile picture, update it using the context
+    if (previewUrl && previewUrl !== contextProfileImage) {
+      updateProfileImage(previewUrl)
+    }
+
     setIsEditing(false)
 
     toast({
@@ -305,7 +333,14 @@ export default function ProfilePage() {
 
               <Separator className="my-4" />
 
-              <Button variant="destructive" className="w-full">
+              <Button
+                variant="destructive"
+                className="w-full"
+                onClick={() => {
+                  logout()
+                  router.push("/")
+                }}
+              >
                 Sign Out
               </Button>
             </CardContent>

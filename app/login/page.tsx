@@ -87,7 +87,7 @@ export default function LoginPage() {
             </div>
           </div>
           <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
-          <p className="text-muted-foreground">Log in to your Kolkata Bus Tracker account</p>
+          <p className="text-muted-foreground">Log in to your CityWheels account</p>
         </div>
 
         <Card>

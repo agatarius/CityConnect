@@ -12,7 +12,7 @@ import { NearbyBusAlert } from "@/components/nearby-bus-alert"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CityConnect - Smart Bus Tracking & Booking",
+  title: "CityWheels - Smart Bus Tracking & Booking",
   description: "Track city buses across Kolkata in real-time, pre-book your journey, and earn rewards.",
     generator: 'v0.dev'
 }

@@ -35,7 +35,7 @@ export default function PaymentSuccessPage() {
           </CardHeader>
           <CardContent className="text-center">
             <p className="mb-4 text-gray-600">
-              Thank you for booking with CityConnect. Your payment has been processed successfully.
+              Thank you for booking with CityWheels. Your payment has been processed successfully.
             </p>
             <div className="mb-6 rounded-lg bg-gray-50 p-4">
               <p className="text-sm text-gray-500">

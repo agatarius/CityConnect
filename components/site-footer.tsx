@@ -9,7 +9,7 @@ export function SiteFooter() {
           <div className="col-span-1 lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Bus className="h-6 w-6 text-rose-600" />
-              <span className="font-bold">CityConnect</span>
+              <span className="font-bold">CityWheels</span>
             </Link>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
               Smart city bus tracking and booking system for Kolkata. Track buses in real-time, pre-book your journey,
@@ -107,7 +107,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-12 border-t pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>© {new Date().getFullYear()} CityConnect. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CityWheels. All rights reserved.</p>
         </div>
       </div>
     </footer>
