@@ -401,137 +401,17 @@ export default function BookPage() {
 
               <div className="grid gap-4">
                 <div className="flex items-center justify-center">
-                  <div className="rounded-lg border p-4 bg-muted/50">
-                    <div className="text-center mb-2">Scan QR Code to Pay</div>
-                    {/* More realistic QR code */}
-                    <div className="w-48 h-48 mx-auto bg-white p-2 rounded-md">
-                      <svg
-                        viewBox="0 0 100 100"
-                        className="w-full h-full"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        {/* QR Code frame */}
-                        <rect width="100" height="100" fill="white" />
-
-                        {/* Position detection patterns (corners) */}
-                        <g>
-                          {/* Top-left */}
-                          <rect x="5" y="5" width="20" height="20" fill="black" />
-                          <rect x="10" y="10" width="10" height="10" fill="white" />
-                          <rect x="12" y="12" width="6" height="6" fill="black" />
-
-                          {/* Top-right */}
-                          <rect x="75" y="5" width="20" height="20" fill="black" />
-                          <rect x="80" y="10" width="10" height="10" fill="white" />
-                          <rect x="82" y="12" width="6" height="6" fill="black" />
-
-                          {/* Bottom-left */}
-                          <rect x="5" y="75" width="20" height="20" fill="black" />
-                          <rect x="10" y="80" width="10" height="10" fill="white" />
-                          <rect x="12" y="82" width="6" height="6" fill="black" />
-                        </g>
-
-                        {/* QR Code data modules (simplified) */}
-                        <g>
-                          {/* Random pattern to make it look like a real QR code */}
-                          <rect x="35" y="5" width="5" height="5" fill="black" />
-                          <rect x="45" y="5" width="5" height="5" fill="black" />
-                          <rect x="55" y="5" width="5" height="5" fill="black" />
-                          <rect x="30" y="10" width="5" height="5" fill="black" />
-                          <rect x="40" y="10" width="5" height="5" fill="black" />
-                          <rect x="50" y="10" width="5" height="5" fill="black" />
-                          <rect x="60" y="10" width="5" height="5" fill="black" />
-                          <rect x="35" y="15" width="5" height="5" fill="black" />
-                          <rect x="45" y="15" width="5" height="5" fill="black" />
-                          <rect x="55" y="15" width="5" height="5" fill="black" />
-
-                          <rect x="5" y="35" width="5" height="5" fill="black" />
-                          <rect x="15" y="35" width="5" height="5" fill="black" />
-                          <rect x="25" y="35" width="5" height="5" fill="black" />
-                          <rect x="35" y="35" width="5" height="5" fill="black" />
-                          <rect x="45" y="35" width="5" height="5" fill="black" />
-                          <rect x="65" y="35" width="5" height="5" fill="black" />
-                          <rect x="75" y="35" width="5" height="5" fill="black" />
-                          <rect x="85" y="35" width="5" height="5" fill="black" />
-
-                          <rect x="10" y="40" width="5" height="5" fill="black" />
-                          <rect x="30" y="40" width="5" height="5" fill="black" />
-                          <rect x="50" y="40" width="5" height="5" fill="black" />
-                          <rect x="70" y="40" width="5" height="5" fill="black" />
-                          <rect x="90" y="40" width="5" height="5" fill="black" />
-
-                          <rect x="5" y="45" width="5" height="5" fill="black" />
-                          <rect x="15" y="45" width="5" height="5" fill="black" />
-                          <rect x="25" y="45" width="5" height="5" fill="black" />
-                          <rect x="45" y="45" width="5" height="5" fill="black" />
-                          <rect x="55" y="45" width="5" height="5" fill="black" />
-                          <rect x="65" y="45" width="5" height="5" fill="black" />
-                          <rect x="75" y="45" width="5" height="5" fill="black" />
-
-                          <rect x="10" y="50" width="5" height="5" fill="black" />
-                          <rect x="20" y="50" width="5" height="5" fill="black" />
-                          <rect x="40" y="50" width="5" height="5" fill="black" />
-                          <rect x="50" y="50" width="5" height="5" fill="black" />
-                          <rect x="60" y="50" width="5" height="5" fill="black" />
-                          <rect x="80" y="50" width="5" height="5" fill="black" />
-                          <rect x="90" y="50" width="5" height="5" fill="black" />
-
-                          <rect x="5" y="55" width="5" height="5" fill="black" />
-                          <rect x="25" y="55" width="5" height="5" fill="black" />
-                          <rect x="35" y="55" width="5" height="5" fill="black" />
-                          <rect x="45" y="55" width="5" height="5" fill="black" />
-                          <rect x="65" y="55" width="5" height="5" fill="black" />
-                          <rect x="85" y="55" width="5" height="5" fill="black" />
-
-                          <rect x="30" y="60" width="5" height="5" fill="black" />
-                          <rect x="40" y="60" width="5" height="5" fill="black" />
-                          <rect x="50" y="60" width="5" height="5" fill="black" />
-                          <rect x="60" y="60" width="5" height="5" fill="black" />
-                          <rect x="70" y="60" width="5" height="5" fill="black" />
-
-                          <rect x="35" y="65" width="5" height="5" fill="black" />
-                          <rect x="45" y="65" width="5" height="5" fill="black" />
-                          <rect x="55" y="65" width="5" height="5" fill="black" />
-                          <rect x="65" y="65" width="5" height="5" fill="black" />
-
-                          <rect x="30" y="70" width="5" height="5" fill="black" />
-                          <rect x="40" y="70" width="5" height="5" fill="black" />
-                          <rect x="60" y="70" width="5" height="5" fill="black" />
-                          <rect x="70" y="70" width="5" height="5" fill="black" />
-
-                          <rect x="35" y="75" width="5" height="5" fill="black" />
-                          <rect x="45" y="75" width="5" height="5" fill="black" />
-                          <rect x="55" y="75" width="5" height="5" fill="black" />
-                          <rect x="65" y="75" width="5" height="5" fill="black" />
-
-                          <rect x="30" y="80" width="5" height="5" fill="black" />
-                          <rect x="50" y="80" width="5" height="5" fill="black" />
-                          <rect x="60" y="80" width="5" height="5" fill="black" />
-                          <rect x="70" y="80" width="5" height="5" fill="black" />
-
-                          <rect x="35" y="85" width="5" height="5" fill="black" />
-                          <rect x="45" y="85" width="5" height="5" fill="black" />
-                          <rect x="55" y="85" width="5" height="5" fill="black" />
-                          <rect x="75" y="85" width="5" height="5" fill="black" />
-                          <rect x="85" y="85" width="5" height="5" fill="black" />
-
-                          <rect x="40" y="90" width="5" height="5" fill="black" />
-                          <rect x="50" y="90" width="5" height="5" fill="black" />
-                          <rect x="60" y="90" width="5" height="5" fill="black" />
-                          <rect x="70" y="90" width="5" height="5" fill="black" />
-                          <rect x="80" y="90" width="5" height="5" fill="black" />
-                        </g>
-
-                        {/* UPI logo in the center */}
-                        <rect x="40" y="40" width="20" height="20" fill="white" />
-                        <text x="42" y="55" fontSize="10" fontWeight="bold">
-                          UPI
-                        </text>
-                      </svg>
+                  <div className="rounded-lg border p-4 bg-white shadow-md">
+                    <div className="text-center mb-4 font-medium text-lg">Scan QR Code to Pay</div>
+                    <div className="w-64 h-64 mx-auto bg-white rounded-md overflow-hidden">
+                      <img
+                        src="/images/payment-qr-code.jpeg"
+                        alt="Payment QR Code"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <div className="text-center mt-2 text-sm text-muted-foreground">
-                      Use any UPI app to scan and pay
+                    <div className="text-center mt-4 text-sm text-muted-foreground">
+                      Use Google Pay, PhonePe, or any UPI app to scan and pay
                     </div>
                   </div>
                 </div>
